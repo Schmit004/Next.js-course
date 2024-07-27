@@ -1,7 +1,8 @@
 {
   "name": "nextjs-course",
   "version": "0.1.0",
-  "private": true,
+  "description": "Exploring NextJS framework.",
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
