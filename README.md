@@ -92,8 +92,9 @@ export default function BlogPage({ params }) {
   return <h1>Blog Post: #{slug}</h1>;
 }
 ```
-
-Параметры запроса можно также получить с помощь хука *useSearchParams()*:
+Параметры маршрута можно также получить с помощью хука *useParams()*.
+Полный путь можно получить с помощью хука *usePathname()*.
+А параметры запроса можно получить с помощь хука *useSearchParams()*:
 
 ```javascript
 const searchParams = useSearchParams();

@@ -1,23 +1,21 @@
-import Link from 'next/link';
-import { ContextMenu, ContextMenuTrigger, ContextMenuContent, ContextMenuItem, ContextMenuCheckboxItem, ContextMenuSeparator } from '@radix-ui/react-context-menu';
+import PropertyCard from "@/components/PropertyCard";
+import properties from "@/properties.json";
 
 const PropertiesPage = () => {
   return (
-    <main className="flex min-h-80 flex-col items-center justify-between p-24 bg-yellow-200">
-      <h1 className='bg-yellow-200'>PropertiesPage</h1>
-      <Link className='text-blue-700' href={'/'}>Back to home page</Link>
-      <Link className='text-blue-700' href={'/properties/123'}>Go to specific property</Link>
-      <ContextMenu>
-        <ContextMenuTrigger className='my-4 p-4 bg-gray-200 border-2 border-solid border-green-400'>Right-click me</ContextMenuTrigger>
-        <ContextMenuContent>
-          <ContextMenuItem>Open</ContextMenuItem>
-          <ContextMenuCheckboxItem>Star</ContextMenuCheckboxItem>
-          <ContextMenuSeparator />
-          <ContextMenuItem>Rename</ContextMenuItem>
-          <ContextMenuItem>Delete</ContextMenuItem>
-        </ContextMenuContent>
-      </ContextMenu>
-    </main>
+    <section className="px-4 py-6">
+      <div className="container-xl lg:container m-auto px-4 py-6">
+        {properties.length === 0 ? (
+          <p>Ничего не найдено</p>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {properties.map((property, index) => (
+              <PropertyCard property={property} key={index} />
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
   );
 };
 
